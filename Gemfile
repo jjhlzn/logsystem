@@ -67,11 +67,13 @@ gem 'capistrano-rails'
 gem 'quiet_assets', group: :development
 gem 'thin', group: :development
 
-gem 'activeadmin', github: 'activeadmin'
+#gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 
 gem 'less'
 gem 'less-rails'
 gem 'therubyracer'
+
+gem 'mysql2'
 
 gem 'tiny_tds'

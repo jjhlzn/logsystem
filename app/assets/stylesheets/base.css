@@ -838,3 +838,8 @@ table#change-history tbody th {
     color: #666;
 }
 
+tr:nth-child(odd) {
+    background-color: rgb(237, 243, 254);
+}
+
+

@@ -5,13 +5,17 @@ class LogsController < ApplicationController
     @logs = search(params)
   end
 
+  def search
+    @logs = search(params)
+  end
+
   def search (params)
     date = params[:date]
     from_time = params[:from_time]
     end_time = params[:end_time]
     thread = params[:thread]
-    content = params[:thread]
-    page_no = params[:page_no]
+    content = params[:content]
+    page_no = params[:page]
     page_size = 40
 
     if date.blank?

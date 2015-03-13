@@ -9,14 +9,16 @@ default: &default
   pool: 5
   encoding: utf8
   timeout: 5000
-  username: root
-  password: 123456
+
   socket: /tmp/mysql.sock
 
 development:
   <<: *default
+  username: hengdian
+  password: 86547211
   database: lottery
-  url: mysql2://10.1.36.168/lottery
+  url: mysql2://www.hengdianworld.com/lottery
+  #url: mysql2://10.1.36.168/lottery
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,10 +29,6 @@ test:
   url: mysql2://www.hengdianworld.com/lottery
 
 production:
-  adapter: mysql2
-  pool: 5
-  encoding: utf8
-  timeout: 5000
   username: hengdian
   password: 86547211
   socket: /tmp/mysql2.sock

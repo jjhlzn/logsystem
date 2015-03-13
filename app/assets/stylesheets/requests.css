@@ -27,30 +27,15 @@ input[type=text] {
     width: 10%;
 }
 
-.levelField {
+.ipField {
     float: left;
     text-align: left;
-    width: 4%;
+    width: 7%;
 }
 
-.threadField {
+.urlField {
     float: left;
     text-align: left;
-    width: 3%;
+    width: 83%;
 }
-
-.classField {
-    float: left;
-    text-align: left;
-    width: 13%;
-}
-
-.contentField {
-    float: left;
-    text-align: left;
-    width: 70%;
-}
-
-
-
 

@@ -1,0 +1,67 @@
+<%#encoding:utf-8 %>
+<%= stylesheet_link_tag  'exceptions.css', media: 'all', 'data-turbolinks-track' => true %>
+<div id="content-main" style="margin-left: 10px; margin-right: 10px; width: 99%;">
+      <div id="form">
+        <%= form_tag('/exceptions', method: 'get') do %>
+            <span>
+                date:
+                <%= text_field_tag :date, params[:date], id: 'dateField' %>
+            </span>
+            <span>
+                from_time:
+                <%= text_field_tag :from_time, params[:from_time] %>
+            </span>
+            <span>
+              end_time:
+              <%= text_field_tag :end_time, params[:end_time] %>
+            </span>
+            <span>
+              thread:
+              <%= text_field_tag :thread, params[:thread] %>
+            </span>
+            <span>
+              content:
+              <%= text_field_tag :content, params[:content], id: 'contentField' %>
+            </span>
+            <span>
+                <%= submit_tag "查询", id: 'search_button', 'class' => 'btn btn-primary btn-xs' %> 
+                <a href="/exceptions?from_time=<%= (Time.now - 60 * 60).strftime('%T') %>" class='btn btn-primary btn-xs' style='color: white; margin-left: 50px;'>最近1小时</a>
+            </span>
+        <% end %>
+      </div>
+
+
+      <div class="digg_pagination">
+        <%= will_paginate @logs %>
+      </div>
+
+      <div class="results">
+        <div class="results" id="resultsDiv">
+          <div class="divRow divRowTitle clearfix">
+            <div class="timeField">Time</div>
+            <div class="threadField">Thread</div>
+            <div class="levelField">Level</div>
+            <div class="classField">Class</div>
+            <div class="requestField">Request</div>
+            <div class="contentField">Content</div>
+
+          </div>
+          <% @logs.each do |log| %>
+              <div class="divRow clearfix">
+                <div class="timeField"><%= log.time %></div>
+                <div class="threadField"><%= log.thread %></div>
+                <div class="levelField"><%= log.level %></div>
+                <div class="classField"><%= log.clazz %></div>
+                <div class="requestField"><a>请求</a></div>
+                <div class="contentField"><%= log.content %></div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="digg_pagination">
+        <%= will_paginate @logs %>
+      </div>
+
+</div>
+

@@ -5,8 +5,12 @@ class LogsController < ApplicationController
     @logs = search(params)
   end
 
-  def search
+  def exceptions
+    params[:is_exception] = true
     @logs = search(params)
+    #@logs.each do |log|
+    #   Request.where()
+    #end
   end
 
   def search (params)
@@ -17,6 +21,7 @@ class LogsController < ApplicationController
     level = params[:level]
     content = params[:content]
     page_no = params[:page]
+    is_exception = params[:is_exception]
     page_size = 40
 
     if date.blank?
@@ -47,6 +52,10 @@ class LogsController < ApplicationController
 
     if not content.blank?
       query = query.where("content like ? OR clazz = ?", "%#{content}%", content)
+    end
+
+    if is_exception
+      query = query.where('level in (?, ?)', 'ERROR', 'FATAL')
     end
 
     if page_no.blank?

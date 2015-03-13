@@ -1,4 +1,5 @@
 source 'https://ruby.taobao.org'
+#source 'http://rubygems.org/'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -76,4 +77,4 @@ gem 'therubyracer'
 
 gem 'mysql2'
 
-gem 'tiny_tds'
+#gem 'tiny_tds'

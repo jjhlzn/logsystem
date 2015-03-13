@@ -14,6 +14,7 @@ class LogsController < ApplicationController
     from_time = params[:from_time]
     end_time = params[:end_time]
     thread = params[:thread]
+    level = params[:level]
     content = params[:content]
     page_no = params[:page]
     page_size = 40
@@ -35,13 +36,17 @@ class LogsController < ApplicationController
     end
 
     query = Log.where("time > ? AND time < ?", from_time, end_time)
+    
+    if not level.blank?
+      query = query.where("level = ?", level)
+    end
 
     if not thread.blank?
       query = query.where("thread = ?", thread)
     end
 
     if not content.blank?
-      query = query.where("content like ?", "%#{content}%")
+      query = query.where("content like ? OR clazz = ?", "%#{content}%", content)
     end
 
     if page_no.blank?
@@ -49,7 +54,7 @@ class LogsController < ApplicationController
     else
       page_no = page_no.to_i
     end
-
+    
     return query.paginate :page => page_no, :per_page => page_size
   end
 end

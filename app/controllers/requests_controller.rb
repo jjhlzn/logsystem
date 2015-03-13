@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
     date = params[:date]
     from_time = params[:from_time]
     end_time = params[:end_time]
-    thread = params[:thread]
+    ip = params[:ip]
     content = params[:content]
     page_no = params[:page]
     page_size = 40
@@ -28,6 +28,10 @@ class RequestsController < ApplicationController
 
     if not content.blank?
       query = query.where("memo like ?", "%#{content}%")
+    end
+
+    if not ip.blank?
+      query = query.where("ip = ?", ip)
     end
 
     if page_no.blank?

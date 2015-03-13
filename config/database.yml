@@ -27,6 +27,12 @@ test:
   url: mysql2://www.hengdianworld.com/lottery
 
 production:
-  <<: *default
+  adapter: mysql2
+  pool: 5
+  encoding: utf8
+  timeout: 5000
+  username: hengdian
+  password: 86547211
+  socket: /tmp/mysql2.sock
   database: lottery
   url: mysql2://www.hengdianworld.com/lottery

@@ -14,6 +14,10 @@ class LogsController < ApplicationController
   end
 
   def search (params)
+    #去掉params所有值的空格
+    params.each do |key, value|
+      params[key] = value.strip
+    end
     date = params[:date]
     from_time = params[:from_time]
     end_time = params[:end_time]
@@ -33,6 +37,11 @@ class LogsController < ApplicationController
     else
       from_time = "#{date} 00:00:00"
     end
+
+    Rails.logger.debug { "params = #{params}" }
+    Rails.logger.debug { "date = '#{date}'" }
+    Rails.logger.debug { "from_time = '#{from_time}'" }
+    Rails.logger.debug { "end_time = '#{end_time}'" }
 
     if not end_time.blank?
       end_time = "#{date} #{end_time}"

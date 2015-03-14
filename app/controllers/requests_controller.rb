@@ -46,7 +46,7 @@ class RequestsController < ApplicationController
   def show
     request_id = params[:id]
     page_no = params[:page]
-    page_size = 40
+    page_size = 200
 
     if page_no.blank?
       page_no = 1

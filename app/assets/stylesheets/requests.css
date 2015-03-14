@@ -33,9 +33,15 @@ input[type=text] {
     width: 7%;
 }
 
+.isErrorField {
+    float: left;
+    text-align: left;
+    width: 3%;
+}
+
 .urlField {
     float: left;
     text-align: left;
-    width: 83%;
+    width: 80%;
 }
 

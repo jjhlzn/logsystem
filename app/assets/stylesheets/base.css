@@ -881,7 +881,22 @@ tr:nth-child(odd) {
 #resultsDiv a:link {
     color: darkblue;
 }
+#resultsDiv a:visited {
+    color: #333333;
+}
 
 #nav_menu a {
     margin-right: 10px;
+}
+
+.FATAL {
+    color: red;
+}
+
+.ERROR {
+    color: red;
+}
+
+#resultsDiv .errorRequest {
+    background-color: lightcoral;
 }

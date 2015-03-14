@@ -18,8 +18,10 @@
               thread:
               <%= text_field_tag :thread, params[:thread] %>
             </span>
+            <span>
               level:
               <%= select_tag(:level, options_for_select([['全部', ''], ['DEBUG', 'DEBUG'], ['INFO', 'INFO'], ['FATAL', 'FATAL'], ['ERROR', 'ERROR']])) %>
+            </span>
             <span>
               content:
               <%= text_field_tag :content, params[:content], id: 'contentField' %>
@@ -47,7 +49,7 @@
 
           </div>
           <% @logs.each do |log| %>
-              <div class="divRow clearfix">
+              <div class="divRow clearfix <%= log.level %>">
                 <div class="timeField"><%= log.time %></div>
                 <div class="threadField"><%= log.thread %></div>
                 <div class="levelField"><%= log.level %></div>

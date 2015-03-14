@@ -1,8 +1,11 @@
+require 'will_paginate/array'
+
 class RequestsController < ApplicationController
   def index
     date = params[:date]
     from_time = params[:from_time]
     end_time = params[:end_time]
+    is_error = params[:isError] == '1'
     ip = params[:ip]
     content = params[:content]
     page_no = params[:page]
@@ -24,14 +27,18 @@ class RequestsController < ApplicationController
       end_time = "#{date} 23:59:59,999"
     end
 
-    query = Request.where("time >= ? AND time <= ?", from_time, end_time)
+    sql = "SELECT * FROM #{get_request_table_name(params[:application])} WHERE time >= '#{from_time}' AND time <= '#{end_time}' "
 
     if not content.blank?
-      query = query.where("memo like ?", "%#{content}%")
+      sql += " AND memo like '%#{content}%'"
     end
 
     if not ip.blank?
-      query = query.where("ip = ?", ip)
+      sql += " ADN ip = '#{ip}'"
+    end
+
+    if is_error
+      sql += ' AND (isError = 1 or isFatal = 1) '
     end
 
     if page_no.blank?
@@ -40,7 +47,8 @@ class RequestsController < ApplicationController
       page_no = page_no.to_i
     end
 
-    @requests = query.paginate :page => page_no, :per_page => page_size
+    @requests = Request.paginate_by_sql([sql], :page => page_no, :per_page => page_size)
+
   end
 
   def show
@@ -54,8 +62,8 @@ class RequestsController < ApplicationController
       page_no = page_no.to_i
     end
 
-    request = Request.where("id = ?", request_id).first
-    firstLog = Log.where("id = ?", request.firstLog).first;
-    @logs = Log.where("id >= ? AND id <= ? AND thread = ?", request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
+    request = Request.find_by_sql(["SELECT * FROM #{get_request_table_name(params[:application])} WHERE id = ?", request_id]).first
+    firstLog = Log.where('id = ?', request.firstLog).first;
+    @logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
   end
 end

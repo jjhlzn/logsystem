@@ -8,15 +8,15 @@ class LogsController < ApplicationController
   def exceptions
     params[:is_exception] = true
     @logs = search(params)
-    #@logs.each do |log|
-    #   Request.where()
-    #end
+    @logs.each do |log|
+        log.request = Request.where('firstLog <= ? AND endLog >= ?', log.id, log.id).first
+    end
   end
 
   def search (params)
     #去掉params所有值的空格
     params.each do |key, value|
-      params[key] = value.strip
+      params[key] = value.strip if value.is_a? String
     end
     date = params[:date]
     from_time = params[:from_time]

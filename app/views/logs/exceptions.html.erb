@@ -52,8 +52,8 @@
                 <div class="threadField"><%= log.thread %></div>
                 <div class="levelField"><%= log.level %></div>
                 <div class="classField"><%= log.clazz %></div>
-                <div class="requestField"><a>请求</a></div>
-                <div class="contentField"><%= log.content %></div>
+                <div class="requestField"> <%= simple_format(log.request ?  "<a href='requests/#{log.request.id}'>请求</a>" : '&nbsp;') %></div>
+                <div class="contentField"><%= simple_format(log.content.gsub(/\n/, '<br/>').gsub(/ /, '&nbsp;')) %></div>
               </div>
           <% end %>
         </div>

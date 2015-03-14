@@ -19,6 +19,10 @@
               <%= text_field_tag :ip, params[:ip], id: 'ipField' %>
             </span>
             <span>
+              status:
+              <%= select_tag(:isError, options_for_select([['全部', ''], ['异常', '1'], ['正常', '0']])) %>
+            </span>
+            <span>
               content:
               <%= text_field_tag :content, params[:content], id: 'contentField' %>
             </span>
@@ -40,7 +44,7 @@
           <div class="urlField">Url</div>
         </div>
         <% @requests.each do |request| %>
-            <div class="divRow clearfix">
+            <div class="divRow clearfix <%= request.isError ? 'errorRequest' : '' %>">
               <div class="timeField"><%= request.time %></div>
               <div class="ipField"><%= request.ip %></div>
               <div class="urlField"><a href="/requests/<%= request.id%>"> <%= URI.decode(request.memo).truncate(250) %> </a> </div>

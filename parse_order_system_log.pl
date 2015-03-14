@@ -67,11 +67,10 @@ sub parse_log {
 	while (<FILE>) {
 		$text .= $_;
 	}
-	print "read finished\n";
-	
 	#update parse position
 	update_parse_position(tell(FILE), strftime("%y-%m-%d %H:%M:%S",localtime(time)), '');
 	close(FILE);
+	print "read finished\n";
 
 	while ($text =~ /
 					([0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\s+
@@ -109,12 +108,12 @@ sub parse_log {
 							encode("utf-8", decode("gb2312", $2)), 
 							encode("utf-8", decode("gb2312", $3)), 
 							encode("utf-8", decode("gb2312", $4)), 
-							encode("utf-8", decode("gb2312", remove_changeline($5))));
+							encode("utf-8", decode("gb2312", remove_newline($5))));
 
 	}
 }
 
-sub remove_changeline {
+sub remove_newline {
 	my $content = $_[0];
 	$content =~ s/[\r\n]$//;
 	return $content;

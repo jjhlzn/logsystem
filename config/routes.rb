@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'requests#index'
   resources :logs
   resources :requests
-  get 'exception_logs', to: 'logs#exceptions', as: 'exceptions'
+  get 'exception_logs', to: 'logs#exceptions', as: 'logExceptions'
+  get 'exception_requests', to: 'requests#exceptions', as: 'requestExceptions'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

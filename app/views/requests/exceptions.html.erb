@@ -1,7 +1,7 @@
 <%#encoding:utf-8 %>
 <div id="content-main" style="margin-left: 10px; margin-right: 10px; width: 99%;">
       <div id="form">
-        <%= form_tag('/requests', method: 'get') do %>
+        <%= form_tag('/exception_requests', method: 'get') do %>
             <span>
                 date:
                 <%= text_field_tag :date, params[:date], id: 'dateField' %>
@@ -19,16 +19,12 @@
               <%= text_field_tag :ip, params[:ip], id: 'ipField' %>
             </span>
             <span>
-              status:
-              <%= select_tag(:isError, options_for_select([['全部', ''], ['异常', '1'], ['正常', '0']], params[:isError])) %>
-            </span>
-            <span>
               content:
               <%= text_field_tag :content, params[:content], id: 'contentField' %>
             </span>
             <span>
-                <%= submit_tag "查询", id: 'search_button', 'class' => 'btn btn-primary btn-xs' %> 
-                <a href="/requests?from_time=<%= (Time.now - 30).strftime('%T') %>" class='btn btn-primary btn-xs' style='color: white; margin-left: 50px;'>最近30秒</a>
+                <%= submit_tag "查询", id: 'search_button', 'class' => 'btn btn-primary btn-xs' %>
+                <a href="/exception_requests?from_time=<%= (Time.now - 60 * 60).strftime('%T') %>" class='btn btn-primary btn-xs' style='color: white; margin-left: 50px;'>最近1小时</a>
             </span>
         <% end %>
       </div>

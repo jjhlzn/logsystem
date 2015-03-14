@@ -20,7 +20,7 @@
             </span>
             <span>
               level:
-              <%= select_tag(:level, options_for_select([['全部', ''], ['DEBUG', 'DEBUG'], ['INFO', 'INFO'], ['FATAL', 'FATAL'], ['ERROR', 'ERROR']])) %>
+              <%= select_tag(:level, options_for_select([['全部', ''], 'DEBUG', ['INFO'], 'FATAL', 'ERROR'], params[:level])) %>
             </span>
             <span>
               content:
@@ -32,7 +32,6 @@
             </span>
         <% end %>
       </div>
-
 
       <div class="digg_pagination">
         <%= will_paginate @logs %>

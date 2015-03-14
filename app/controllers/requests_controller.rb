@@ -2,6 +2,32 @@ require 'will_paginate/array'
 
 class RequestsController < ApplicationController
   def index
+    @requests = search(params)
+  end
+
+  def exceptions
+    params[:isError] = '1'
+    @request = search(params)
+  end
+
+  def show
+    request_id = params[:id]
+    page_no = params[:page]
+    page_size = 200
+
+    if page_no.blank?
+      page_no = 1
+    else
+      page_no = page_no.to_i
+    end
+
+    request = Request.find_by_sql(["SELECT * FROM #{get_request_table_name(params[:application])} WHERE id = ?", request_id]).first
+    firstLog = Log.where('id = ?', request.firstLog).first;
+    @logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
+  end
+
+
+  def search(params)
     date = params[:date]
     from_time = params[:from_time]
     end_time = params[:end_time]
@@ -48,22 +74,7 @@ class RequestsController < ApplicationController
     end
 
     @requests = Request.paginate_by_sql([sql], :page => page_no, :per_page => page_size)
-
   end
 
-  def show
-    request_id = params[:id]
-    page_no = params[:page]
-    page_size = 200
 
-    if page_no.blank?
-      page_no = 1
-    else
-      page_no = page_no.to_i
-    end
-
-    request = Request.find_by_sql(["SELECT * FROM #{get_request_table_name(params[:application])} WHERE id = ?", request_id]).first
-    firstLog = Log.where('id = ?', request.firstLog).first;
-    @logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
-  end
 end

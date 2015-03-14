@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use DBI;
 use Encode; 
+use DBI qw(:sql_types);
 use POSIX qw(strftime);
 use 5.010;
 
@@ -39,7 +40,7 @@ while(1) {
 
 sub parse_log {
 	my $last_logid = get_last_parse();
-	print "last_logid = $last_logid\n";
+	#print "last_logid = $last_logid\n";
 	my $log_table_name = get_log_table();
 	my $sql = "SELECT id, time, thread, level, clazz, content FROM $log_table_name WHERE content like '##############################################%' AND id > $last_logid";
 	my $rows = GetValues($sql);
@@ -63,7 +64,12 @@ sub parse_log {
 				my $end_id = $$first_row[2];
 				my $conent2 = $$first_row[1];
 				print "Request: startid = $start_id, endid = $end_id\n";
-				insert_request($start_id, $end_id, $ip, $url, $time);
+				my $hasErrorSql = "SELECT COUNT(*) FROM $log_table_name WHERE id >= $start_id AND id <= $end_id AND level in ('FATAL', 'ERROR')";
+				my $rows3 = GetValues($hasErrorSql);
+				my $hasErrorRow = $$rows3[0];
+				my $isError = $$hasErrorRow[0] > 0 ? 1 : 0;
+				
+				insert_request($start_id, $end_id, $ip, $url, $time, $isError);
 				$new_last_logid = $start_id;
 			}else{
 				print "$sql2\n";
@@ -76,10 +82,13 @@ sub parse_log {
 }
 
 sub insert_request {
+	my ($start_id, $end_id, $ip, $url, $time, $isError) = @_;
 	my $request_table_name = get_request_table();
-	my $sql = "INSERT INTO $request_table_name (firstLog, endLog, ip, memo, time) values (?, ?, ?, ?, ?)";
+	my $sql = "INSERT INTO $request_table_name (firstLog, endLog, ip, memo, time, isError) values (?, ?, ?, ?, ?, $isError)";
+	#print "$sql \n";
+	#print "isError = $isError \n";
 	my $stmt = $dbh->prepare($sql);
-	$stmt->execute(@_);
+	$stmt->execute($start_id, $end_id, $ip, $url, $time);
 }
 
 sub get_last_parse {

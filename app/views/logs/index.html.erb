@@ -27,7 +27,7 @@
               <%= text_field_tag :content, params[:content], id: 'contentField' %>
             </span>
             <span>
-                <%= submit_tag "查询", id: 'search_button', 'class' => 'btn btn-primary btn-xs' %> 
+                <%= submit_tag "查询", id: 'search_button', 'style' => 'color: white', 'class' => 'btn btn-primary btn-xs' %>
                 <a href="/logs?from_time=<%= (Time.now - 30).strftime('%T') %>" class='btn btn-primary btn-xs' style='color: white; margin-left: 50px;'>最近30秒</a>
             </span>
         <% end %>

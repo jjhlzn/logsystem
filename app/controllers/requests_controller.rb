@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
     end
 
     if not ip.blank?
-      sql += " ADN ip = '#{ip}'"
+      sql += " AND ip = '#{ip}'"
     end
 
     if is_error
@@ -73,7 +73,8 @@ class RequestsController < ApplicationController
       page_no = page_no.to_i
     end
 
-    @requests = Request.paginate_by_sql([sql], :page => page_no, :per_page => page_size)
+    Rails.logger.debug { sql }
+    @requests = Request.paginate_by_sql(sql, :page => page_no, :per_page => page_size)
   end
 
 

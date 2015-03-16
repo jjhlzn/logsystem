@@ -1,9 +1,9 @@
 module ApplicationHelper
   def get_log_table_name (application)
-    return 'logsystem_testordersystem'
+    return 'logsystem_ordersystem'
   end
 
   def get_request_table_name (application)
-    return 'logsystem_requests_testordersystem'
+    return 'logsystem_requests_ordersystem'
   end
 end

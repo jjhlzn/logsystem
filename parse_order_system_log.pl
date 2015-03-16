@@ -34,7 +34,7 @@ while(1) {
 	    $stmt = $dbh->prepare($_sql);
 		parse_log('C:/EBusiness(newui)/Order2011/log/log_root.txt') 
 	};
-	sleep(5);
+	sleep(20);
 	if($@){
 		print "$@\n";
 	}

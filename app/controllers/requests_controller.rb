@@ -8,7 +8,6 @@ class RequestsController < ApplicationController
   def exceptions
     params[:isError] = '1'
     @requests = search(params)
-    @requests.each { |req| req.isNotError = (Log.where('id >= ? AND id <= ? AND level in (?, ?)', req.firstLog, req.endLog, 'FATAL', 'ERROR').count == 0) }
   end
 
   def show

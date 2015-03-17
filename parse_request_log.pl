@@ -64,7 +64,7 @@ sub parse_log {
 				my $end_id = $$first_row[2];
 				my $conent2 = $$first_row[1];
 				print "Request: startid = $start_id, endid = $end_id\n";
-				my $hasErrorSql = "SELECT COUNT(*) FROM $log_table_name WHERE id >= $start_id AND id <= $end_id AND level in ('FATAL', 'ERROR')";
+				my $hasErrorSql = "SELECT COUNT(*) FROM $log_table_name WHERE id >= $start_id AND id <= $end_id AND thread = '$thread' AND level in ('FATAL', 'ERROR')";
 				my $rows3 = GetValues($hasErrorSql);
 				my $hasErrorRow = $$rows3[0];
 				my $isError = $$hasErrorRow[0] > 0 ? 1 : 0;

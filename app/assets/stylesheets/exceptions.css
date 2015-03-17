@@ -65,3 +65,7 @@ select {
     width: 65%;
 }
 
+.isNotError {
+    display: none;
+}
+

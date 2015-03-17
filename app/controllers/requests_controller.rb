@@ -7,7 +7,8 @@ class RequestsController < ApplicationController
 
   def exceptions
     params[:isError] = '1'
-    @request = search(params)
+    @requests = search(params)
+    @requests.each { |req| req.isNotError = (Log.where('id >= ? AND id <= ? AND level in (?, ?)', req.firstLog, req.endLog, 'FATAL', 'ERROR').count == 0) }
   end
 
   def show
@@ -53,7 +54,7 @@ class RequestsController < ApplicationController
       end_time = "#{date} 23:59:59,999"
     end
 
-    sql = "SELECT * FROM #{get_request_table_name(params[:application])} WHERE time >= '#{from_time}' AND time <= '#{end_time}' "
+    sql = "SELECT * FROM #{get_request_table_name(params[:application])} WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
 
     if not content.blank?
       sql += " AND memo like '%#{content}%'"

@@ -2,5 +2,5 @@
 class Request < ActiveRecord::Base
   self.table_name = "logsystem_requests_ordersystem"
 
-  attr_accessor :isError
+  attr_accessor :isNotError
 end

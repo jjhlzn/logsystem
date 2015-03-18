@@ -32,7 +32,7 @@ while(1) {
 		$_sql = "insert into $log_table_name (time, thread, level, 
 				clazz, content) values (?,?,?,?,?)";
 	    $stmt = $dbh->prepare($_sql);
-		parse_log('C:/EBusiness(newui)/Order2011/log/log_root.txt') 
+		parse_log('C:/EBusiness/Order2011/log/log_root.txt') 
 	};
 	sleep(20);
 	if($@){

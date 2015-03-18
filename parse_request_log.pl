@@ -25,7 +25,7 @@ while(1) {
 	eval{ 
 	    $dbh  = DBI->connect($dsn,$username,$password, \%attr);
 		$dbh->do("set names utf8");
-		parse_log() 
+		parse_log();
 	};
 	sleep(5);
 	if($@){
@@ -42,6 +42,7 @@ sub parse_log {
 	my $last_logid = get_last_parse();
 	#print "last_logid = $last_logid\n";
 	my $log_table_name = get_log_table();
+	my $request_table_name = get_request_table();
 	my $sql = "SELECT id, time, thread, level, clazz, content FROM $log_table_name WHERE content like '##############################################%' AND id > $last_logid";
 	my $rows = GetValues($sql);
 	my $new_last_logid = $last_logid;
@@ -65,11 +66,15 @@ sub parse_log {
 				my $conent2 = $$first_row[1];
 				print "Request: startid = $start_id, endid = $end_id\n";
 				my $hasErrorSql = "SELECT COUNT(*) FROM $log_table_name WHERE id >= $start_id AND id <= $end_id AND thread = '$thread' AND level in ('FATAL', 'ERROR')";
-				my $rows3 = GetValues($hasErrorSql);
-				my $hasErrorRow = $$rows3[0];
-				my $isError = $$hasErrorRow[0] > 0 ? 1 : 0;
-				
+				my $hasErrorRow = GetOneValue($hasErrorSql);
+				my $isError = $hasErrorRow > 0 ? 1 : 0;
 				insert_request($start_id, $end_id, $ip, $url, $time, $isError);
+
+				my $getIdSql = "SELECT id FROM $request_table_name WHERE firstLog = $start_id AND endLog = $end_id AND ip = '$ip' AND memo = '$url' AND time = '$time' AND isError = $isError";
+				my $reqId = GetOneValue($getIdSql);
+				if (defined($reqId) ){
+					set_request_log_relation($reqId, $start_id, $end_id, $thread);
+				}
 				$new_last_logid = $start_id;
 			}else{
 				print "$sql2\n";
@@ -79,6 +84,13 @@ sub parse_log {
 	}
 	update_parse_position($new_last_logid);
 	print "parse_log complete\n";
+}
+
+sub set_request_log_relation {
+	my ($reqId, $start_id, $end_id, $thread) = @_;
+	my $log_table_name = get_log_table();
+	my $sql = "UPDATE $log_table_name SET requestId = $reqId WHERE id between $start_id AND $end_id AND thread = '$thread'";
+	$dbh->do($sql);
 }
 
 sub insert_request {
@@ -147,6 +159,23 @@ sub GetValues {
 		push @$rows, $row;
 	}
 	return $rows;
+}
+
+sub GetOneRow {
+	my $rows = GetValues(@_);
+	if (@$rows == 0){
+		return;
+	}
+	return $$rows[0];
+}
+
+
+sub GetOneValue {
+	my $row = GetOneRow(@_);
+	if (!defined($row)){
+		return;
+	}
+	return $$row[0];
 }
 
 sub IsInList {

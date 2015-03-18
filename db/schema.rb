@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312050441) do
+ActiveRecord::Schema.define(version: 20150318071611) do
 
   create_table "auth_group", force: true do |t|
     t.string "name", limit: 80, null: false
@@ -98,6 +98,17 @@ ActiveRecord::Schema.define(version: 20150312050441) do
 
   add_index "django_session", ["expire_date"], name: "django_session_b7b81f0c", using: :btree
 
+  create_table "logsystem_ordersystem", force: true do |t|
+    t.string  "time",      limit: 200,   null: false
+    t.string  "thread",    limit: 500,   null: false
+    t.string  "level",     limit: 500,   null: false
+    t.string  "clazz",     limit: 500,   null: false
+    t.string  "content",   limit: 20000, null: false
+    t.integer "requestId"
+  end
+
+  add_index "logsystem_ordersystem", ["time"], name: "index_time", using: :btree
+
   create_table "logsystem_ordersystemlogrecord", force: true do |t|
     t.string "time",    limit: 200,   null: false
     t.string "thread",  limit: 500,   null: false
@@ -114,6 +125,58 @@ ActiveRecord::Schema.define(version: 20150312050441) do
     t.datetime "parsetime"
     t.string   "end_content", limit: 4000
   end
+
+  create_table "logsystem_requestparseposition", id: false, force: true do |t|
+    t.string  "application", limit: 200
+    t.integer "logid"
+  end
+
+  create_table "logsystem_requests", force: true do |t|
+    t.integer  "firstLog"
+    t.integer  "endLog"
+    t.string   "memo",       limit: 4000
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "time"
+    t.string   "ip",         limit: 100
+    t.binary   "hasError",   limit: 1
+    t.binary   "hasFatal",   limit: 1
+  end
+
+  create_table "logsystem_requests_ordersystem", force: true do |t|
+    t.integer  "firstLog"
+    t.integer  "endLog"
+    t.string   "memo",       limit: 4000
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "time"
+    t.string   "ip",         limit: 100
+    t.binary   "isFatal",    limit: 1,    default: "b'0'"
+    t.binary   "isError",    limit: 1,    default: "b'0'"
+  end
+
+  create_table "logsystem_requests_testordersystem", force: true do |t|
+    t.integer  "firstLog"
+    t.integer  "endLog"
+    t.string   "memo",       limit: 4000
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "time"
+    t.string   "ip",         limit: 100
+    t.binary   "isFatal",    limit: 1,    default: "b'0'"
+    t.binary   "isError",    limit: 1,    default: "b'0'"
+  end
+
+  create_table "logsystem_testordersystem", force: true do |t|
+    t.string  "time",      limit: 200,   null: false
+    t.string  "thread",    limit: 500,   null: false
+    t.string  "level",     limit: 500,   null: false
+    t.string  "clazz",     limit: 500,   null: false
+    t.string  "content",   limit: 20000, null: false
+    t.integer "requestId"
+  end
+
+  add_index "logsystem_testordersystem", ["time"], name: "index_time", using: :btree
 
   create_table "lottery_coupon", force: true do |t|
     t.string  "name",             limit: 100, null: false
@@ -170,6 +233,18 @@ ActiveRecord::Schema.define(version: 20150312050441) do
     t.string   "code",   limit: 100, null: false
     t.boolean  "status",             null: false
     t.datetime "time",               null: false
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "orderNo"
+    t.string   "orderTime"
+    t.string   "agentNo"
+    t.string   "agentName"
+    t.string   "type"
+    t.string   "details"
+    t.string   "visitorInfo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "requests", force: true do |t|

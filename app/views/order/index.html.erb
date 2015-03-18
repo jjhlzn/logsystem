@@ -1,0 +1,52 @@
+<%#encoding:utf-8 %>
+<div id="content-main" style="margin-left: 10px; margin-right: 10px; width: 99%;">
+      <div id="form">
+        <%= form_tag('/orders', method: 'get') do %>
+            <span>
+                date:
+                <%= text_field_tag :date, params[:date], id: 'dateField' %>
+            </span>
+            <span>
+                from_time:
+                <%= text_field_tag :from_time, params[:from_time] %>
+            </span>
+            <span>
+              end_time:
+              <%= text_field_tag :end_time, params[:end_time] %>
+            </span>
+            <span>
+              订单号:
+              <%= text_field_tag :orderNo, params[:orderNo], id: 'contentField' %>
+            </span>
+            <span>
+                <%= submit_tag "查询", id: 'search_button', 'style' => 'color: white', 'class' => 'btn btn-primary btn-xs' %>
+                <a href="/orders?from_time=<%= (Time.now - 60 * 60).strftime('%T') %>" class='btn btn-primary btn-xs' style='color: white; margin-left: 50px;'>最近1小时</a>
+            </span>
+        <% end %>
+      </div>
+
+      <div class="digg_pagination">
+        <%= will_paginate @orders %>
+      </div>
+
+      <div class="results" id="resultsDiv">
+        <div class="divRow divRowTitle clearfix">
+          <div class="timeField">订单号</div>
+          <div class="timeField">下单时间</div>
+          <div class="urlField">日志链接</div>
+        </div>
+        <% @orders.each do |order| %>
+            <div class="divRow clearfix">
+              <div class="timeField"><%= order.orderNo %></div>
+              <div class="ipField"><%= order.orderTime%></div>
+              <div class="urlField"> 下单  审核  支付  取消 </div>
+            </div>
+        <% end %>
+      </div>
+
+      <div class="digg_pagination">
+        <%= will_paginate @orders %>
+      </div>
+
+</div>
+

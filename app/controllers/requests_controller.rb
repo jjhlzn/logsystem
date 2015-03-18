@@ -26,7 +26,6 @@ class RequestsController < ApplicationController
     @logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
   end
 
-
   def search(params)
     date = params[:date]
     from_time = params[:from_time]
@@ -57,8 +56,8 @@ class RequestsController < ApplicationController
     sql = "SELECT * FROM #{get_request_table_name(params[:application])} a WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
 
     if search_type == 'create_order'
-      sql += " AND a.firstLog <= (SELECT b.id FROM #{get_log_table_name(params[:application])} b WHERE b.content = '订单(#{content})保存成功!')
-               AND a.endLog >= (SELECT b.id FROM #{get_log_table_name(params[:application])} b WHERE b.content = '订单(#{content})保存成功!'  )"
+      sql += " AND (SELECT  b.id FROM #{get_log_table_name(params[:application])} b WHERE b.content = '订单(#{content})保存成功!')  between a.firstLog AND a.endLog
+               AND (SELECT b.requestId FROM #{get_log_table_name(params[:application])}  b WHERE b.content = '订单(#{content})保存成功!') = id"
     else
       if not content.blank?
         sql += " AND memo like '%#{content}%'"

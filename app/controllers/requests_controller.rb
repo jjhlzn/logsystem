@@ -35,6 +35,7 @@ class RequestsController < ApplicationController
     ip = params[:ip]
     content = params[:content]
     page_no = params[:page]
+    search_type = params[:search_type]
     page_size = 40
 
     if date.blank?
@@ -53,10 +54,15 @@ class RequestsController < ApplicationController
       end_time = "#{date} 23:59:59,999"
     end
 
-    sql = "SELECT * FROM #{get_request_table_name(params[:application])} WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
+    sql = "SELECT * FROM #{get_request_table_name(params[:application])} a WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
 
-    if not content.blank?
-      sql += " AND memo like '%#{content}%'"
+    if search_type == 'create_order'
+      sql += " AND a.firstLog <= (SELECT b.id FROM #{get_log_table_name(params[:application])} b WHERE b.content = '订单(#{content})保存成功!')
+               AND a.endLog >= (SELECT b.id FROM #{get_log_table_name(params[:application])} b WHERE b.content = '订单(#{content})保存成功!'  )"
+    else
+      if not content.blank?
+        sql += " AND memo like '%#{content}%'"
+      end
     end
 
     if not ip.blank?

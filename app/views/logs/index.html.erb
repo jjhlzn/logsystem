@@ -53,7 +53,7 @@
                 <div class="threadField"><%= log.thread %></div>
                 <div class="levelField"><%= log.level %></div>
                 <div class="classField"><%= log.clazz %></div>
-                <div class="contentField"><%= simple_format(log.content.gsub(/\n/, '<br/>').gsub(/ /, '&nbsp;')) %></div>
+                <div class="contentField"><%= simple_format(log.content.gsub(/\n/, '<br/>')) %></div>
               </div>
           <% end %>
         </div>

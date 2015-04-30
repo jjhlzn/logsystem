@@ -53,10 +53,17 @@ select {
     width: 13%;
 }
 
+.requestField {
+    float: left;
+    text-align: left;
+    width: 3%;
+}
+
+
 .contentField {
     float: left;
     text-align: left;
-    width: 70%;
+    width: 67%;
 }
 
 

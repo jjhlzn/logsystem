@@ -44,6 +44,7 @@
             <div class="threadField">Thread</div>
             <div class="levelField">Level</div>
             <div class="classField">Class</div>
+            <div class="requestField">Request</div>
             <div class="contentField">Content</div>
 
           </div>
@@ -53,6 +54,7 @@
                 <div class="threadField"><%= log.thread %></div>
                 <div class="levelField"><%= log.level %></div>
                 <div class="classField"><%= log.clazz %></div>
+                <div class="requestField">&nbsp;<a href="/requests/<%= log.requestId %>" style=" <%= log.requestId ? '' : 'display: none;' %>"> 请求 </a>  </div>
                 <div class="contentField"><%= simple_format(log.content.gsub(/\n/, '<br/>')) %></div>
               </div>
           <% end %>

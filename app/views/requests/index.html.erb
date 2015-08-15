@@ -51,7 +51,7 @@
             <div class="divRow clearfix <%= request[:isError] == "\x01" ? 'errorRequest' : '' %>">
               <div class="timeField"><%= request.time %></div>
               <div class="ipField"><%= request.ip%></div>
-              <div class="urlField"><a href="/requests/<%= request.id%>"> <%= URI.decode(request.memo).truncate(250) %> </a> </div>
+              <div class="urlField"><a href="/requests/<%= request.id%>?date=<%= params[:date]  %>"> <%= URI.decode(request.memo).truncate(250) %> </a> </div>
             </div>
         <% end %>
       </div>

@@ -1,4 +1,5 @@
 require 'will_paginate/array'
+require 'date'
 
 class RequestsController < ApplicationController
   def index
@@ -12,6 +13,7 @@ class RequestsController < ApplicationController
 
   def show
     request_id = params[:id]
+    date = params[:date]
     page_no = params[:page]
     page_size = 200
 
@@ -21,7 +23,7 @@ class RequestsController < ApplicationController
       page_no = page_no.to_i
     end
 
-    request = Request.find_by_sql(["SELECT * FROM #{get_request_table_name(params[:application])} WHERE id = ?", request_id]).first
+    request = Request.find_by_sql(["SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))} WHERE id = ?", request_id]).first
     firstLog = Log.where('id = ?', request.firstLog).first;
     @logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
   end
@@ -53,11 +55,11 @@ class RequestsController < ApplicationController
       end_time = "#{date} 23:59:59,999"
     end
 
-    sql = "SELECT * FROM #{get_request_table_name(params[:application])} a WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
+    sql = "SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))} a WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
 
     if search_type == 'create_order'
-      sql += " AND (SELECT  b.id FROM #{get_log_table_name(params[:application])} b WHERE b.content = '订单(#{content})保存成功!')  between a.firstLog AND a.endLog
-               AND (SELECT b.requestId FROM #{get_log_table_name(params[:application])}  b WHERE b.content = '订单(#{content})保存成功!') = id"
+      sql += " AND (SELECT  b.id FROM #{get_log_table_name(params[:application], DateTime.parse(date))} b WHERE b.content = '订单(#{content})保存成功!')  between a.firstLog AND a.endLog
+               AND (SELECT b.requestId FROM #{get_log_table_name(params[:application], DateTime.parse(date))}  b WHERE b.content = '订单(#{content})保存成功!') = id"
     else
       if not content.blank?
         sql += " AND memo like '%#{content}%'"

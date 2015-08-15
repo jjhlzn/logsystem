@@ -49,22 +49,30 @@ class LogsController < ApplicationController
       end_time = "#{date} 23:59:59,999"
     end
 
-    query = Log.where("time > ? AND time < ?", from_time, end_time)
+    sql = <<-SQL
+      SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))}
+      WHERE time > '#{from_time}' AND time < '#{end_time}'
+    SQL
+    #query = Log.where("time > ? AND time < ?", from_time, end_time)
     
     if not level.blank?
-      query = query.where("level = ?", level)
+      #query = query.where("level = ?", level)
+      sql += " AND level = '#{level}'"
     end
 
     if not thread.blank?
-      query = query.where("thread = ?", thread)
+      #query = query.where("thread = ?", thread)
+      sql += " AND thread = '#{thread}'"
     end
 
     if not content.blank?
-      query = query.where("content like ? OR clazz = ?", "%#{content}%", content)
+      #query = query.where("content like ? OR clazz = ?", "%#{content}%", content)
+      sql += " AND content like '%#{content}%' OR clazz = 'content'"
     end
 
     if is_exception
-      query = query.where('level in (?, ?)', 'ERROR', 'FATAL')
+      #query = query.where('level in (?, ?)', 'ERROR', 'FATAL')
+      sql += " AND level in ('ERROR', 'FATAL')"
     end
 
     if page_no.blank?
@@ -72,7 +80,8 @@ class LogsController < ApplicationController
     else
       page_no = page_no.to_i
     end
-    
-    return query.paginate :page => page_no, :per_page => page_size
+
+    Rails.logger.debug { sql }
+    return Request.paginate_by_sql(sql, :page => page_no, :per_page => page_size)
   end
 end

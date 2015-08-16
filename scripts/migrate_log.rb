@@ -8,7 +8,7 @@ class MigrateLog
     @client = connect_db
   end
   def main
-    dates = ['2015-08-12']
+    dates = ['2015-08-14']
     dates.each do |date|
       fail("create table fail for #{date}!") unless create_table(date)
       fail("migrate logs fail for #{date}!") unless migrate_logs(date)
@@ -55,15 +55,20 @@ class MigrateLog
   def migrate_logs(date)
     #migrate table logsystem_requests_ordersystem
     sql = "INSERT INTO `logsystem_requests_ordersystem_#{date}` SELECT * FROM logsystem_requests_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    print sql + "\n"
     @client.query(sql)
     sql = "DELETE FROM logsystem_requests_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    print sql + "\n"
     @client.query(sql)
 
     #migrate table logsystem_ordersystem
     sql = "INSERT INTO `logsystem_ordersystem_#{date}` SELECT * FROM logsystem_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    print sql + "\n"
     @client.query(sql)
     sql = "DELETE FROM logsystem_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    print sql + "\n"
     @client.query(sql)
+    print "migrate log done.\n"
     return true
   end
 

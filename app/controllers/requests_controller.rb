@@ -24,8 +24,14 @@ class RequestsController < ApplicationController
     end
 
     request = Request.find_by_sql(["SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))} WHERE id = ?", request_id]).first
-    firstLog = Log.where('id = ?', request.firstLog).first;
-    @logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
+    firstLog = Request.find_by_sql(["SELECT * FROM #{get_log_table_name(params[:application], DateTime.parse(date))} WHERE id = ?", request.firstLog]).first
+    #Log.where('id = ?', request.firstLog).first;
+    #@logs = Log.where('id >= ? AND id <= ? AND thread = ?', request.firstLog, request.endLog, firstLog.thread).paginate :page => page_no, :per_page => page_size
+    Rails.logger.debug { "firstLog = #{firstLog}"}
+    sql = "SELECT * FROM #{get_log_table_name(params[:application], DateTime.parse(date))} WHERE id >=  #{request.firstLog}
+                                    AND id <= #{request.endLog} AND thread = '#{firstLog.thread}'"
+    Rails.logger.debug {sql}
+    @logs = Request.paginate_by_sql(sql, :page => page_no, :per_page => page_size)
   end
 
   def search(params)
@@ -43,19 +49,22 @@ class RequestsController < ApplicationController
       date = DateTime.now.strftime('%F')
     end
 
+    sql = "SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))} a WHERE 1=1  "
+
     if not from_time.blank?
       from_time = "#{date} #{from_time}"
+      sql += " AND time >= '#{from_time}'"
     else
-      from_time = "#{date} 00:00:00"
+      #from_time = "#{date} 00:00:00"
     end
 
     if not end_time.blank?
       end_time = "#{date} #{end_time}"
+      sql += " AND time <= '#{end_time}' "
     else
-      end_time = "#{date} 23:59:59,999"
+      #end_time = "#{date} 23:59:59,999"
     end
 
-    sql = "SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))} a WHERE time >= '#{from_time}' AND time <= '#{end_time}'  "
 
     if search_type == 'create_order'
       sql += " AND (SELECT  b.id FROM #{get_log_table_name(params[:application], DateTime.parse(date))} b WHERE b.content = '订单(#{content})保存成功!')  between a.firstLog AND a.endLog

@@ -32,46 +32,35 @@ class LogsController < ApplicationController
       date = DateTime.now.strftime('%F')
     end
 
+    sql = <<-SQL
+      SELECT * FROM #{get_log_table_name(params[:application], DateTime.parse(date))}
+      WHERE 1=1
+    SQL
+
     if not from_time.blank?
       from_time = "#{date} #{from_time}"
-    else
-      from_time = "#{date} 00:00:00"
+      sql += " AND time >= #{from_time}"
     end
-
-    Rails.logger.debug { "params = #{params}" }
-    Rails.logger.debug { "date = '#{date}'" }
-    Rails.logger.debug { "from_time = '#{from_time}'" }
-    Rails.logger.debug { "end_time = '#{end_time}'" }
 
     if not end_time.blank?
       end_time = "#{date} #{end_time}"
-    else
-      end_time = "#{date} 23:59:59,999"
+      sql += " AND time <= #{end_time}"
     end
 
-    sql = <<-SQL
-      SELECT * FROM #{get_request_table_name(params[:application], DateTime.parse(date))}
-      WHERE time > '#{from_time}' AND time < '#{end_time}'
-    SQL
-    #query = Log.where("time > ? AND time < ?", from_time, end_time)
     
     if not level.blank?
-      #query = query.where("level = ?", level)
       sql += " AND level = '#{level}'"
     end
 
     if not thread.blank?
-      #query = query.where("thread = ?", thread)
       sql += " AND thread = '#{thread}'"
     end
 
     if not content.blank?
-      #query = query.where("content like ? OR clazz = ?", "%#{content}%", content)
       sql += " AND content like '%#{content}%' OR clazz = 'content'"
     end
 
     if is_exception
-      #query = query.where('level in (?, ?)', 'ERROR', 'FATAL')
       sql += " AND level in ('ERROR', 'FATAL')"
     end
 

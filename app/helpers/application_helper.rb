@@ -13,8 +13,8 @@ module ApplicationHelper
     if date.strftime('%F') == DateTime.now.strftime('%F')
       return table_name
     else
-      #return table_name + '_' + date.strftime('%F')
-      return table_name
+      return "`#{table_name}_#{date.strftime('%F')}`"
+      #return table_name
     end
   end
 end

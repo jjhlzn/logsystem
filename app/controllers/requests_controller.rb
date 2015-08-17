@@ -17,6 +17,10 @@ class RequestsController < ApplicationController
     page_no = params[:page]
     page_size = 200
 
+    if date.blank?
+      date = DateTime.now.strftime('%F')
+    end
+
     if page_no.blank?
       page_no = 1
     else

@@ -4,7 +4,7 @@
         <%= form_tag('/exception_requests', method: 'get') do %>
             <span>
                 date:
-                <%= text_field_tag :date, params[:date], id: 'dateField' %>
+                <%= text_field_tag :date, params[:date], id: 'dateField', autocomplete: 'off' %>
             </span>
             <span>
                 from_time:

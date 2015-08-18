@@ -9,8 +9,16 @@ class LogAnalyzer
     @client = connect_db
   end
 
-  def analyse
-    sql = ''
+  def analyse(request, logs)
+    logs.each do |log|
+      result = check(request, log)
+      return result if result
+    end
+    nil
+  end
+
+  def check(request, log)
+    false
   end
 
   private
@@ -24,17 +32,44 @@ end
 
 #查看日志里是否有'订单保存成功'
 class CreateOrderAnalyzer < LogAnalyzer
-  def analyse(request)
-    start_log_id = request['firstLog']
-    end_log_id = request['endLog']
-    sql = "SELECT * FROM logsystem_ordersystem WHERE id >= #{start_log_id} AND id <= #{end_log_id}"
-    #puts sql
-    @client.query(sql).each do |log|
-      #puts log['content']
-      if /^订单\((V[0-9]{10})\)保存成功!$/ =~ log['content']
-        puts "match #{request['id']} #{log['id']} #{$1}"
-        return {type: 'create_oder', sellid:$1}
-      end
+  def check(request, log)
+    if /^订单\((V[0-9]{10})\)保存成功!$/ =~ log['content']
+      puts "create_order #{request['id']} #{log['id']} #{$1}"
+      return {type: 'create_order', sellid:$1}
+    end
+  end
+end
+
+class CancelOrderAnalyzer < LogAnalyzer
+  def check(request, log)
+    #puts request
+    #puts log
+    if /^取消订单: (V[0-9]{10})$/ =~ log['content']
+      puts "cancel_order #{request['id']} #{log['id']} #{$1}"
+      return {type: 'cancel_order', sellid:$1}
+    end
+  end
+
+  def analyse(request, logs)
+    results = []
+    logs.each do |log|
+      result = check(request, log)
+      results.push(result) if result
+    end
+    if results.size == 0
+      return nil
+    else
+      return results
+    end
+  end
+end
+
+
+class PayOrderAnalyzer < LogAnalyzer
+  def check(request, log)
+    if /^start handle sellid\[(V[0-9]{10})\]$/ =~ log['content']
+      puts "pay_order #{request['id']} #{log['id']} #{$1}"
+      return {type: 'pay_order', sellid:$1}
     end
   end
 end
@@ -49,11 +84,15 @@ class MainAnalyzer
   end
 
   def analyse
-    sql = "SELECT * FROM logsystem_requests_ordersystem LIMIT 1000"
+    sql = "SELECT * FROM logsystem_requests_ordersystem order by id desc LIMIT 100000"
+    #sql = "SELECT * FROM logsystem_requests_ordersystem WHERE id = 5296957 order by id desc LIMIT 100000"
     puts sql
-    @client.query(sql).each do |log|
+    @client.query(sql).each do |request|
+      sql = "SELECT * FROM logsystem_ordersystem WHERE id >= #{request['firstLog']} AND id <= #{request['endLog']} AND requestId = #{request['id']} "
+      #puts sql
+      logs = @client.query(sql)
       @analyzers.each do |analyzer|
-        result = analyzer.analyse(log)
+        result = analyzer.analyse(request, logs)
         #print result
       end
     end
@@ -67,5 +106,7 @@ class MainAnalyzer
 end
 
 mainAnalyzer = MainAnalyzer.new
-mainAnalyzer.analyzers.push(CreateOrderAnalyzer.new)
+#mainAnalyzer.analyzers.push(CreateOrderAnalyzer.new)
+#mainAnalyzer.analyzers.push(CancelOrderAnalyzer.new)
+mainAnalyzer.analyzers.push(PayOrderAnalyzer.new)
 mainAnalyzer.analyse

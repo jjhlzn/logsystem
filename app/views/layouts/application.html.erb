@@ -19,6 +19,7 @@
       <h1 id="site-name">Log System</h1>
       <p id="nav_menu" style="margin-left: 50px;">
         <a href='/requests' id="requestsMenuItem">请求</a>
+        <a href='/orders' id="requestsMenuItem">订单请求</a>
         <a href="/logs" id="logsMenuItem">日志</a>
         <a href="/exception_requests" id="exceptionsRequestsMenuItem">异常请求</a>
         <a href="/exception_logs" id="exceptionsLogsMenuItem">异常日志</a>
@@ -38,4 +39,7 @@
 <!-- END Container -->
 
 </body>
+
+<link data-turbolinks-track="true" href="/assets/<%=params[:controller] %>.css" media="all" rel="stylesheet" />
+
 </html>

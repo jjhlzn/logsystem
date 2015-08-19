@@ -13,6 +13,8 @@
 
  *= require bootstrap
  *= require pagination.css
- *= require_tree .
+ *= require base.css
+ *= require changelists.css
+ *= #require_tree .
  *= require_self
  */

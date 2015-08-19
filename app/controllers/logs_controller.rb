@@ -39,14 +39,13 @@ class LogsController < ApplicationController
 
     if not from_time.blank?
       from_time = "#{date} #{from_time}"
-      sql += " AND time >= #{from_time}"
+      sql += " AND time >= '#{from_time}'"
     end
 
     if not end_time.blank?
       end_time = "#{date} #{end_time}"
-      sql += " AND time <= #{end_time}"
+      sql += " AND time <= '#{end_time}'"
     end
-
     
     if not level.blank?
       sql += " AND level = '#{level}'"

@@ -16,7 +16,7 @@
             </span>
             <span>
               订单号:
-              <%= text_field_tag :orderNo, params[:orderNo], id: 'contentField' %>
+              <%= text_field_tag :sellid, params[:sellid], id: 'contentField' %>
             </span>
             <span>
                 <%= submit_tag "查询", id: 'search_button', 'style' => 'color: white', 'class' => 'btn btn-primary btn-xs' %>
@@ -31,15 +31,19 @@
 
       <div class="results" id="resultsDiv">
         <div class="divRow divRowTitle clearfix">
-          <div class="timeField">订单号</div>
-          <div class="timeField">下单时间</div>
-          <div class="urlField">日志链接</div>
+          <div class="sellIdField">订单号</div>
+          <div class="requestTypeField">请求类型</div>
+          <div class="timeField">时间</div>
+          <div class="urlField">请求</div>
         </div>
         <% @orders.each do |order| %>
             <div class="divRow clearfix">
-              <div class="timeField"><%= order.orderNo %></div>
-              <div class="ipField"><%= order.orderTime%></div>
-              <div class="urlField"> 下单  审核  支付  取消 </div>
+              <div class="sellIdField"><%= order.sellid %></div>
+              <div class="requestTypeField"><%= order.name%></div>
+              <div class="timeField"> <%= order.time%></div>
+              <div class="urlField">
+                <a href="/requests/<%= order.request_id%>?date=<%= params[:date]  %>"> 请求 </a>
+              </div>
             </div>
         <% end %>
       </div>

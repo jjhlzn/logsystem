@@ -43,7 +43,7 @@ class MigrateLog
         `ip` varchar(100) DEFAULT NULL,
         `isFatal` bit(1) DEFAULT b'0',
         `isError` bit(1) DEFAULT b'0',
-        `orderId` int(11) DEFAULT NULL,
+        `orderId` VARCHAR(4000) DEFAULT NULL,
         `requestType` varchar(255) DEFAULT NULL,
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

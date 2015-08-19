@@ -32,7 +32,7 @@ end
 #查看日志里是否有'订单保存成功'
 class CreateOrderAnalyzer < LogAnalyzer
   def check(request, log)
-    if /^订单\((V[0-9]{10})\)保存成功!$/ =~ log['content']
+    if /^订单\(([V|F][0-9]{10})\)保存成功!$/ =~ log['content']
       puts "create_order #{request['id']} #{log['id']} #{$1}"
       return {type: 'create_order', name: '创建订单', sellid: $1}
     end
@@ -44,7 +44,7 @@ class CancelOrderAnalyzer < LogAnalyzer
   def check(request, log)
     #puts request
     #puts log
-    if /^取消订单: (V[0-9]{10})$/ =~ log['content']
+    if /^取消订单: ([V|F][0-9]{10})$/ =~ log['content']
       puts "cancel_order #{request['id']} #{log['id']} #{$1}"
       return {type: 'cancel_order', name: '取消订单', sellid: $1}
     end
@@ -67,7 +67,7 @@ end
 #审核订单
 class AuditOrderAnalyzer < LogAnalyzer
   def check(request, log)
-    if /^审核订单: (V[0-9]{10})$/ =~ log['content']
+    if /^审核订单: ([V|F][0-9]{10})$/ =~ log['content']
       puts "audit_order #{request['id']} #{log['id']} #{$1}"
       return {type: 'audit_order', name: '订单审核', sellid: $1}
     end
@@ -78,7 +78,7 @@ end
 #支付推送
 class PayOrderAnalyzer < LogAnalyzer
   def check(request, log)
-    if /^start handle sellid\[(V[0-9]{10})\]$/ =~ log['content']
+    if /^start handle sellid\[([V|F][0-9]{10})\]$/ =~ log['content']
       puts "pay_order #{request['id']} #{log['id']} #{$1}"
       return {type: 'pay_order', name: '订单付款', sellid: $1}
     end

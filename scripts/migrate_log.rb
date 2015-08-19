@@ -8,7 +8,7 @@ class MigrateLog
     @client = connect_db
   end
   def main
-    dates = [DateTime.now.strftime('%F')]
+    dates = [DateTime.now.prev_day(1).strftime('%F')]
     dates.each do |date|
       fail("create table fail for #{date}!") unless create_table(date)
       fail("migrate logs fail for #{date}!") unless migrate_logs(date)

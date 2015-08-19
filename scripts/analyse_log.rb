@@ -37,6 +37,19 @@ class CreateOrderAnalyzer < LogAnalyzer
       return {type: 'create_order', name: '创建订单', sellid: $1}
     end
   end
+
+  def analyse(request, logs)
+    results = []
+    logs.each do |log|
+      result = check(request, log)
+      results.push(result) if result
+    end
+    if results.size == 0
+      return nil
+    else
+      return results
+    end
+  end
 end
 
 #取消订单

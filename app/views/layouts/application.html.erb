@@ -5,6 +5,7 @@
   <title>横店影视成日志系统</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link data-turbolinks-track="true" href="/assets/<%=params[:controller] %>.css" media="all" rel="stylesheet" />
   <%= csrf_meta_tags %>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta charset="utf-8" />
@@ -40,6 +41,6 @@
 
 </body>
 
-<link data-turbolinks-track="true" href="/assets/<%=params[:controller] %>.css" media="all" rel="stylesheet" />
+
 
 </html>

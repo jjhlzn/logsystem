@@ -27,33 +27,16 @@ input[type=text] {
     width: 10%;
 }
 
-.levelField {
-    float: left;
-    text-align: left;
-    width: 4%;
-}
 
-.threadField {
+.ipField {
     float: left;
     text-align: left;
-    width: 3%;
-}
-
-.classField {
-    float: left;
-    text-align: left;
-    width: 13%;
-}
-
-.requestField {
-    float: left;
-    text-align: left;
-    width: 3%;
+    width: 10%;
 }
 
 
 .contentField {
     float: left;
     text-align: left;
-    width: 67%;
+    width: 80%;
 }

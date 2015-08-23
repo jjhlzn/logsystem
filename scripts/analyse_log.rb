@@ -160,12 +160,21 @@ class MainAnalyzer
   end
 end
 
-mainAnalyzer = MainAnalyzer.new
-mainAnalyzer.analyzers.push(CreateOrderAnalyzer.new)
-mainAnalyzer.analyzers.push(CancelOrderAnalyzer.new)
-mainAnalyzer.analyzers.push(PayOrderAnalyzer.new)
+def get_analyzer
+  mainAnalyzer = MainAnalyzer.new
+  mainAnalyzer.analyzers.push(CreateOrderAnalyzer.new)
+  mainAnalyzer.analyzers.push(CancelOrderAnalyzer.new)
+  mainAnalyzer.analyzers.push(PayOrderAnalyzer.new)
+  return mainAnalyzer
+end
 
+mainAnalyzer = get_analyzer
 while (1)
-  mainAnalyzer.analyse
-  sleep(2)
+  begin
+    mainAnalyzer.analyse
+    sleep(2)
+  rescue Exception => e
+    sleep(120)
+    mainAnalyzer = get_analyzer
+  end
 end

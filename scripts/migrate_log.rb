@@ -9,6 +9,7 @@ class MigrateLog
   end
   def main
     dates = [DateTime.now.prev_day(1).strftime('%F')]
+    #dates = ['2015-08-24', '2015-08-25']
     dates.each do |date|
       fail("create table fail for #{date}!") unless create_table(date)
       fail("migrate logs fail for #{date}!") unless migrate_logs(date)
@@ -23,7 +24,7 @@ class MigrateLog
           `thread` varchar(500) NOT NULL,
           `level` varchar(500) NOT NULL,
           `clazz` varchar(500) NOT NULL,
-          `content` varchar(20000) NOT NULL,
+          `content` text NOT NULL,
           `requestId` int(11) DEFAULT NULL,
           PRIMARY KEY (`id`),
           KEY `index_time` (`time`)

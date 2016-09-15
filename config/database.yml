@@ -17,7 +17,7 @@ development:
   username: log
   password: jufang2016
   database: logsystem
-  url: mysql2://www.hengdianworld.com/logsystem
+  url: mysql2://jf.yhkamani.com/logsystem
   #url: mysql2://10.1.36.168/lottery
 
 # Warning: The database defined as "test" will be erased and
@@ -26,11 +26,11 @@ development:
 test:
   <<: *default
   database: logsystem
-  url: mysql2://www.hengdianworld.com/logsystem
+  url: mysql2://jf.yhkamani.com/logsystem
 
 production:
   username: log
   password: jufang2016
   socket: /tmp/mysql2.sock
   database: logsystem
-  url: mysql2://www.hengdianworld.com/logsystem
+  url: mysql2://jf.yhkamani.com/logsystem

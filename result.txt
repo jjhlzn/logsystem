@@ -1,0 +1,453 @@
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '85' AND clazz = 'WebUtils' AND id > 1823 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '91' AND clazz = 'WebUtils' AND id > 1831 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 1839 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 1847 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '85' AND clazz = 'WebUtils' AND id > 1856 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 1864 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 1871 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '90' AND clazz = 'WebUtils' AND id > 1878 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 1886 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '91' AND clazz = 'WebUtils' AND id > 1894 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppLiveComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '90' AND clazz = 'WebUtils' AND id > 1902 LIMIT 1
+不能找到/Api/AppLiveComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '90' AND clazz = 'WebUtils' AND id > 1910 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '91' AND clazz = 'WebUtils' AND id > 1918 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppLiveComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '91' AND clazz = 'WebUtils' AND id > 1927 LIMIT 1
+不能找到/Api/AppLiveComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetProfileimage.ashx?userid=13271537689 处理结束---------------------------------------------' 
+						        AND thread = '90' AND clazz = 'WebUtils' AND id > 1938 LIMIT 1
+不能找到/Api/AppGetProfileimage.ashx?userid=13271537689对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetProfileimage.ashx?userid=18648305093 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 1946 LIMIT 1
+不能找到/Api/AppGetProfileimage.ashx?userid=18648305093对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 1957 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 1968 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 1975 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 1986 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 1993 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '90' AND clazz = 'WebUtils' AND id > 2000 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '97' AND clazz = 'WebUtils' AND id > 2011 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2018 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '90' AND clazz = 'WebUtils' AND id > 2025 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2034 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2042 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2049 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppSetNickName.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2057 LIMIT 1
+不能找到/Api/AppSetNickName.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetUserSummaryData.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2064 LIMIT 1
+不能找到/Api/AppGetUserSummaryData.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 2074 LIMIT 1
+不能找到/Api/getComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2080 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2087 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 2096 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2105 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2113 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 2120 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2127 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2135 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2144 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2152 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2159 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '53' AND clazz = 'WebUtils' AND id > 2166 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 2177 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2185 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '44' AND clazz = 'WebUtils' AND id > 2192 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2200 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetUserSummaryData.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2208 LIMIT 1
+不能找到/Api/AppGetUserSummaryData.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2217 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2225 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 2233 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2241 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2249 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2257 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '65' AND clazz = 'WebUtils' AND id > 2264 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2272 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2280 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2288 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2297 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2305 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2312 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetUserSummaryData.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2319 LIMIT 1
+不能找到/Api/AppGetUserSummaryData.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2328 LIMIT 1
+不能找到/Api/getComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '83' AND clazz = 'WebUtils' AND id > 2336 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2345 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2353 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2360 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '101' AND clazz = 'WebUtils' AND id > 2367 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2376 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2384 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2391 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2398 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2406 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2415 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '83' AND clazz = 'WebUtils' AND id > 2423 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2430 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetUserSummaryData.ashx 处理结束---------------------------------------------' 
+						        AND thread = '83' AND clazz = 'WebUtils' AND id > 2437 LIMIT 1
+不能找到/Api/AppGetUserSummaryData.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2446 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2454 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2462 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2470 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2478 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2487 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppLiveComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2495 LIMIT 1
+不能找到/Api/AppLiveComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '83' AND clazz = 'WebUtils' AND id > 2503 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '94' AND clazz = 'WebUtils' AND id > 2511 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '83' AND clazz = 'WebUtils' AND id > 2518 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '83' AND clazz = 'WebUtils' AND id > 2526 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetHotSearchWords.ashx 处理结束---------------------------------------------' 
+						        AND thread = '94' AND clazz = 'WebUtils' AND id > 2534 LIMIT 1
+不能找到/Api/AppGetHotSearchWords.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2541 LIMIT 1
+不能找到/Api/getComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2547 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2554 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2565 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2572 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetLiveListener.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2579 LIMIT 1
+不能找到/Api/AppGetLiveListener.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2586 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2593 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2601 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '81' AND clazz = 'WebUtils' AND id > 2609 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppLiveComments.ashx 处理结束---------------------------------------------' 
+						        AND thread = '81' AND clazz = 'WebUtils' AND id > 2617 LIMIT 1
+不能找到/Api/AppLiveComments.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetProfileimage.ashx?userid=13706794299 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2628 LIMIT 1
+不能找到/Api/AppGetProfileimage.ashx?userid=13706794299对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2639 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2647 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/GetAlbums.ashx 处理结束---------------------------------------------' 
+						        AND thread = '40' AND clazz = 'WebUtils' AND id > 2655 LIMIT 1
+不能找到/Api/GetAlbums.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetPayLink.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2666 LIMIT 1
+不能找到/Api/AppGetPayLink.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2673 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '102' AND clazz = 'WebUtils' AND id > 2682 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '81' AND clazz = 'WebUtils' AND id > 2690 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/getAdvert.ashx 处理结束---------------------------------------------' 
+						        AND thread = '80' AND clazz = 'WebUtils' AND id > 2697 LIMIT 1
+不能找到/Api/getAdvert.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/Songs.ashx 处理结束---------------------------------------------' 
+						        AND thread = '6' AND clazz = 'WebUtils' AND id > 2705 LIMIT 1
+不能找到/Api/Songs.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '106' AND clazz = 'WebUtils' AND id > 2713 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/CheckUpgrade.ashx 处理结束---------------------------------------------' 
+						        AND thread = '106' AND clazz = 'WebUtils' AND id > 2721 LIMIT 1
+不能找到/Api/CheckUpgrade.ashx对应的结束标志
+SELECT id, time, thread, level, clazz, content FROM logsystem_jufang 
+						  WHERE content = '---------------------------------------------/Api/AppGetParameter.ashx 处理结束---------------------------------------------' 
+						        AND thread = '81' AND clazz = 'WebUtils' AND id > 2730 LIMIT 1
+不能找到/Api/AppGetParameter.ashx对应的结束标志
+SELECT id, time, thread, level, clazz

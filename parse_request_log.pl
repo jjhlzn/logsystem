@@ -8,10 +8,10 @@ use 5.010;
 
 my $has_last_parse_info = 0;
 
-my $dsn = "DBI:mysql:lottery;host=localhost";
-my $username = "root";
-my $password = '123456';
-my $application = 'localordersystem';
+my $dsn = "DBI:mysql:logsystem;host=jf.yhkamani.com";
+my $username = "log";
+my $password = 'jufang2016';
+my $application = 'jufang';
  
 # connect to MySQL database
 my %attr = ( mysql_auto_reconnect=>1,

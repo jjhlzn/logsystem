@@ -14,10 +14,10 @@ default: &default
 
 development:
   <<: *default
-  username: hengdian
-  password: 86547211
-  database: lottery
-  url: mysql2://www.hengdianworld.com/lottery
+  username: log
+  password: jufang2016
+  database: logsystem
+  url: mysql2://www.hengdianworld.com/logsystem
   #url: mysql2://10.1.36.168/lottery
 
 # Warning: The database defined as "test" will be erased and
@@ -25,12 +25,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: lottery
-  url: mysql2://www.hengdianworld.com/lottery
+  database: logsystem
+  url: mysql2://www.hengdianworld.com/logsystem
 
 production:
-  username: hengdian
-  password: 86547211
+  username: log
+  password: jufang2016
   socket: /tmp/mysql2.sock
-  database: lottery
-  url: mysql2://www.hengdianworld.com/lottery
+  database: logsystem
+  url: mysql2://www.hengdianworld.com/logsystem

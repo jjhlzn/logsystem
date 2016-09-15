@@ -1,17 +1,18 @@
 use strict;
 use warnings;
-
+use POSIX qw(strftime);
 use DBI;
 use Encode; 
 use POSIX qw(strftime);
 
 my $has_last_parse_info = 0;
 
-my $dsn = "DBI:mysql:lottery;host=localhost";
-my $username = "root";
-my $password = '123456';
+my $dsn = "DBI:mysql:logsystem;host=jf.yhkamani.com";
+my $username = "log";
+my $password = 'jufang2016';
 
-my $application = 'localordersystem';
+my $application = 'jufang';
+
  
 # connect to MySQL database
 my %attr = ( mysql_auto_reconnect=>1,
@@ -29,10 +30,12 @@ while(1) {
 		my $stmt2 = $dbh->prepare($_sql);
 		$stmt2->execute();
 		my $log_table_name = get_log_table();
-		$_sql = "insert into $log_table_name (time, thread, level, 
-				clazz, content) values (?,?,?,?,?)";
+		$_sql = "insert into $log_table_name (time, thread, level, clazz, content) values (?,?,?,?,?)";
 	    $stmt = $dbh->prepare($_sql);
-		parse_log('C:/EBusiness/Order2011/log/log_root.txt') 
+
+		my $logFile = 'E:/WebSite/jufang/Logs/Logs_';
+		my $date = strftime "%Y%m%d", localtime;
+		parse_log($logFile.$date.'.txt') 
 	};
 	sleep(20);
 	if($@){

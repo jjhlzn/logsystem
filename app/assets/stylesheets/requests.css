@@ -24,7 +24,7 @@ input[type=text] {
 .timeField {
     float: left;
     text-align: left;
-    width: 10%;
+    width: 25%;
 }
 
 
@@ -38,5 +38,5 @@ input[type=text] {
 .contentField {
     float: left;
     text-align: left;
-    width: 80%;
+    width: 65%;
 }

@@ -18,7 +18,7 @@ class MigrateLog
 
   def create_table(date)
     sql = """
-        CREATE TABLE if not exists `logsystem_ordersystem_#{date}` (
+        CREATE TABLE if not exists `logsystem_jufang_#{date}` (
           `id` int(11) NOT NULL,
           `time` varchar(200) NOT NULL,
           `thread` varchar(500) NOT NULL,
@@ -33,7 +33,7 @@ class MigrateLog
     print sql
     @client.query(sql)
     sql = """
-      CREATE TABLE if not exists `logsystem_requests_ordersystem_#{date}` (
+      CREATE TABLE if not exists `logsystem_requests_jufang_#{date}` (
         `id` int(11) NOT NULL,
         `firstLog` int(11) DEFAULT NULL,
         `endLog` int(11) DEFAULT NULL,
@@ -44,8 +44,6 @@ class MigrateLog
         `ip` varchar(100) DEFAULT NULL,
         `isFatal` bit(1) DEFAULT b'0',
         `isError` bit(1) DEFAULT b'0',
-        `orderId` VARCHAR(4000) DEFAULT NULL,
-        `requestType` varchar(255) DEFAULT NULL,
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     """
@@ -55,18 +53,18 @@ class MigrateLog
 
   def migrate_logs(date)
     #migrate table logsystem_requests_ordersystem
-    sql = "INSERT INTO `logsystem_requests_ordersystem_#{date}` SELECT * FROM logsystem_requests_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    sql = "INSERT INTO `logsystem_requests_jufang_#{date}` SELECT * FROM logsystem_requests_jufang WHERE left(`time`, 10) = '#{date}';"
     print sql + "\n"
     @client.query(sql)
-    sql = "DELETE FROM logsystem_requests_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    sql = "DELETE FROM logsystem_requests_jufang WHERE left(`time`, 10) = '#{date}';"
     print sql + "\n"
     @client.query(sql)
 
     #migrate table logsystem_ordersystem
-    sql = "INSERT INTO `logsystem_ordersystem_#{date}` SELECT * FROM logsystem_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    sql = "INSERT INTO `logsystem_jufang_#{date}` SELECT * FROM logsystem_jufang WHERE left(`time`, 10) = '#{date}';"
     print sql + "\n"
     @client.query(sql)
-    sql = "DELETE FROM logsystem_ordersystem WHERE left(`time`, 10) = '#{date}';"
+    sql = "DELETE FROM logsystem_jufang WHERE left(`time`, 10) = '#{date}';"
     print sql + "\n"
     @client.query(sql)
     print "migrate log done.\n"
@@ -74,7 +72,7 @@ class MigrateLog
   end
 
   def connect_db
-    @client = Mysql2::Client.new(:host => 'www.hengdianworld.com', :username => 'hengdian', :password => '86547211', :database => 'lottery')
+    @client = Mysql2::Client.new(:host => 'jf.yhkamani.com', :username => 'log', :password => 'jufang2016', :database => 'logsystem')
   end
 
   def fail(msg)

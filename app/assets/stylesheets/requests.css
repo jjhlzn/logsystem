@@ -14,17 +14,21 @@ input[type=text] {
 }
 
 #contentField {
-    width: 250px;
+    width: 200px;
 }
 
 #ipField {
     width: 150px;
 }
 
+#statusTag {
+    width: 50px;
+}
+
 .timeField {
     float: left;
     text-align: left;
-    width: 25%;
+    width: 15%;
 }
 
 
@@ -38,5 +42,5 @@ input[type=text] {
 .contentField {
     float: left;
     text-align: left;
-    width: 65%;
+    width: 75%;
 }
